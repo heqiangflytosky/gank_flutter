@@ -6,6 +6,8 @@ import 'package:gank_flutter/network/request.dart';
 import 'package:gank_flutter/model/CategoryBean.dart';
 import 'package:gank_flutter/widgets/list_item.dart';
 import 'package:gank_flutter/utils/state_load.dart';
+import 'loading.dart';
+import 'error.dart';
 
 class CategoryList extends StatefulWidget {
   static final String TAG = "Gank";
@@ -64,12 +66,15 @@ class CateGoryListState extends State<CategoryList> with AutomaticKeepAliveClien
     super.build(context);
     if (_listData.length == 0) {
       if (_state == LOAD_STATE.STATE_LOADING) {
-        return new Center(
-          child: Text("正在加载"),
-        );
+        return new LoadingWidget();
       } else if (_state == LOAD_STATE.STATE_ERROR) {
-        return new Center(
-          child: Text("加载失败，点击重试"),
+        return new GankErrorWidget(
+          reload: () {
+            setState(() {
+              _state = LOAD_STATE.STATE_LOADING;
+              _getMoreDate(_pageSize +1);
+            });
+          },
         );
       }
     } else {

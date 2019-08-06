@@ -10,6 +10,9 @@ import 'package:gank_flutter/model/GankItemBean.dart';
 import 'package:gank_flutter/widgets/list_head_item.dart';
 import 'package:gank_flutter/widgets/list_image_item.dart';
 import 'package:gank_flutter/utils/constants.dart';
+import 'package:gank_flutter/widgets/loading.dart';
+import 'package:gank_flutter/widgets/error.dart';
+import 'package:gank_flutter/utils/log_utils.dart';
 
 class DailyList extends StatefulWidget {
   static final String TAG = "Gank";
@@ -37,12 +40,15 @@ class DailyListState extends State<DailyList>  with AutomaticKeepAliveClientMixi
   Widget build(BuildContext context) {
     if (_listData.length == 0) {
       if (_state == LOAD_STATE.STATE_LOADING) {
-        return new Center(
-          child: Text("正在加载"),
-        );
+        return new LoadingWidget();
       } else if (_state == LOAD_STATE.STATE_ERROR) {
-        return new Center(
-          child: Text("加载失败，点击重试"),
+        return new GankErrorWidget(
+          reload: (){
+            setState(() {
+              _state = LOAD_STATE.STATE_LOADING;
+              _getData();
+            });
+          },
         );
       }
     } else {
@@ -78,7 +84,7 @@ class DailyListState extends State<DailyList>  with AutomaticKeepAliveClientMixi
           } else if (item is GankImageItem) {
             return new ListImageItem(item.imageUrl);
           }
-          return new Text("ttt");
+          return new Text("未知类型");
         }
     );
   }
@@ -165,7 +171,11 @@ class DailyListState extends State<DailyList>  with AutomaticKeepAliveClientMixi
 
       });
     } else {
-
+      if (_listData.length == 0) {
+        setState(() {
+          _state = LOAD_STATE.STATE_ERROR;
+        });
+      }
     }
   }
 
