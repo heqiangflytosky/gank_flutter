@@ -26,8 +26,11 @@ class DetailsPageSate extends State<DetailsPage> {
       withZoom: false,
       withJavascript: true,
       withLocalStorage: true,
-      appBar: new AppBar(
-        title: new Text(_title),
+      appBar: new PreferredSize(
+          child: new AppBar(
+            title: new Text(_title),
+          ),
+          preferredSize: Size.fromHeight(48)
       ),
     );
   }
