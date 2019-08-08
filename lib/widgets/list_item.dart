@@ -100,7 +100,7 @@ class ListItemState extends State<ListItem> {
   void _onClickItem() {
     LogUtils.e(TAG, "on click ");
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new DetailsPage(_data.desc, _data.url);
+      return new DetailsPage(_data);
     }));
   }
 

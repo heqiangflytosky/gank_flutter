@@ -27,6 +27,7 @@ dependencies:
   json_annotation: ^2.0.0
   flutter_webview_plugin: ^0.3.5
   flutter_spinkit: ^3.0.0
+  sqflite: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +62,21 @@ flutter:
     - images/ic-title-video.png
     - images/ic-title-res.png
     - images/ic-title-recommand.png
+    - images/tab_explore_normal.png
+    - images/tab_explore.png
+    - images/tab_home_normal.png
+    - images/tab_home.png
+    - images/tab_profile_normal.png
+    - images/tab_profile.png
+    - images/tab_recommend.png
+    - images/tab_recommend_normal.png
+    - images/ic_action_favorite_outline_gray.png
+    - images/ic_action_favorite.png
+    - images/ic_action_share.png
+    - images/user_about_author.png
+    - images/user_favourite.png
+    - images/user_viewed.png
+    - images/2.0x/ic_action_favorite_outline_gray.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/home_page.dart';
+import 'widgets/main_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new Scaffold(
-        body: HomePageWidget(),
+        body: MainPageWidget(),
         //floatingActionButton: new FloatingActionButton(onPressed: test),
       )
     );

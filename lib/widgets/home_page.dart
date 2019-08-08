@@ -11,7 +11,7 @@ class HomePageWidget extends StatefulWidget{
   }
 }
 
-class HomePageStage extends State<HomePageWidget> with SingleTickerProviderStateMixin {
+class HomePageStage extends State<HomePageWidget> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
   var _tabs = <String>[TabTitle.CATEGORY_DAILY,TabTitle.CATEGORY_ANDROID,TabTitle.CATEGORY_IOS,
     TabTitle.CATEGORY_WEB,TabTitle.CATEGORY_APP,TabTitle.CATEGORY_EXPAND_RES];
   TabController _controller;// DefaultTabController
@@ -20,6 +20,9 @@ class HomePageStage extends State<HomePageWidget> with SingleTickerProviderState
   void initState() {
     _controller = new TabController(length: _tabs.length, vsync: this);
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
