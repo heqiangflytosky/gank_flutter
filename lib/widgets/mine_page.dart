@@ -37,8 +37,15 @@ class MinePageWidgetState extends State<MinePageWidget> {
       body: _getBodyView(),
       appBar: new PreferredSize(
           child: AppBar(
-            title: new Text("我的"),
-            leading: new Icon(Icons.arrow_back),
+            title: new Align(
+              alignment: Alignment.center,
+              child: new Text(
+                "我的",
+                style: new TextStyle(
+                  fontSize: 16
+                ),
+              ),
+            ),
           ),
           preferredSize: Size.fromHeight(48)
       ),
@@ -54,12 +61,12 @@ class MinePageWidgetState extends State<MinePageWidget> {
               height: 1,
               color: Color(0xffdddddd)
           ),
-          new MineItem("images/user_favourite.png","我的收藏",_favouriteSize,true),
+          new MineItem("images/user_favourite.png","我的收藏",_favouriteSize),
           new Divider(
               height: 1,
               color: Color(0xffdddddd)
           ),
-          new MineItem("images/user_viewed.png","阅读过的文章",_historySize,true),
+          new MineItem("images/user_viewed.png","阅读过的文章",_historySize),
           new Divider(
               height: 1,
               color: Color(0xffdddddd)
@@ -71,7 +78,7 @@ class MinePageWidgetState extends State<MinePageWidget> {
               height: 1,
               color: Color(0xffdddddd)
           ),
-          new MineItem("images/user_about_author.png","关于我们",0,false),
+          new MineItem("images/user_about_author.png","关于我们",null),
           new Divider(
               height: 1,
               color: Color(0xffdddddd)
@@ -87,9 +94,8 @@ class MineItem extends StatelessWidget{
   String _iconPath;
   int _size;
   String _title;
-  bool _showSize;
 
-  MineItem(this._iconPath,this._title,this._size,this._showSize);
+  MineItem(this._iconPath,this._title,this._size);
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +122,7 @@ class MineItem extends StatelessWidget{
               child: new Align(
                 alignment: Alignment.centerRight,
                 child: new Offstage(
-                  offstage: !_showSize,
+                  offstage: _size == null,
                   child: new Text(
                       (_size != null ? _size.toString() : "")+" 篇",
                     style: new TextStyle(
