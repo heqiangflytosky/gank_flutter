@@ -78,7 +78,7 @@ class DailyListState extends State<DailyList>  with AutomaticKeepAliveClientMixi
         itemBuilder: (context, i) {
           GankItem item = _listData[i];
           if (item is GankContentItem) {
-            return new ListItem(item.data);
+            return new ListItem(item.data,false);
           } else if (item is GankHeaderItem) {
             return new ListHeadItem(item.title, item.imageUrl);
           } else if (item is GankImageItem) {

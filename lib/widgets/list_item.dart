@@ -7,13 +7,14 @@ import 'package:gank_flutter/widgets/details_page.dart';
 
 class ListItem extends StatefulWidget {
   GankItemBean _data;
+  bool _showType = false;
 
-  ListItem(this._data);
+  ListItem(this._data, this._showType);
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new ListItemState(_data);
+    return new ListItemState(_data,_showType);
   }
 
 }
@@ -21,8 +22,9 @@ class ListItem extends StatefulWidget {
 class ListItemState extends State<ListItem> {
   static const String TAG = "Gank";
   GankItemBean _data;
+  bool _showType = false;
 
-  ListItemState(this._data);
+  ListItemState(this._data,this._showType);
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,28 @@ class ListItemState extends State<ListItem> {
                     child: new Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
+                        new Visibility(
+                          visible: _showType == true,
+                            child: new Row(
+                              children: <Widget>[
+                                new Padding(
+                                  padding: new EdgeInsets.only(left:0,top:0,right:3,bottom:0),
+                                  child: new Image.asset(
+                                    "images/ic_content_type.png",
+                                    width: 14,
+                                  ),
+                                ),
+                                new Text(
+                                    _data.type,
+                                    style: TextStyle(
+                                      fontSize:11,
+                                      color:Color(0x44000000),
+                                    )
+                                ),
+                                new Padding(padding: new EdgeInsets.only(left:0,top:0,right:6,bottom:0),)
+                              ],
+                            )
+                        ),
                         new Padding(
                           padding: new EdgeInsets.only(left:0,top:0,right:3,bottom:0),
                           child: new Image.asset(

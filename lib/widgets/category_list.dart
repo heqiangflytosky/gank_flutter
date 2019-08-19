@@ -92,7 +92,7 @@ class CateGoryListState extends State<CategoryList> with AutomaticKeepAliveClien
         itemCount: _listData.length,
         physics: const AlwaysScrollableScrollPhysics(),
         itemBuilder: (context, i) {
-          return new ListItem(_listData[i]);
+          return new ListItem(_listData[i],false);
         }
     );
   }

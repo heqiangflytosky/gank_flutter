@@ -28,6 +28,8 @@ dependencies:
   flutter_webview_plugin: ^0.3.5
   flutter_spinkit: ^3.0.0
   sqflite: ^1.1.6
+  flutter_linkify: ^2.1.0
+  url_launcher: ^5.1.2
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +57,7 @@ flutter:
   assets:
     - images/ic_content_from.png
     - images/ic_content_time.png
+    - images/ic_content_type.png
     - images/ic-title-benefit.png
     - images/ic-title-android.png
     - images/ic-title-ios.png

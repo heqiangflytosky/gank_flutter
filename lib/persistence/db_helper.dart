@@ -96,6 +96,18 @@ class DateBaseHelper {
     return map;
   }
 
+  GankItemBean toGankBean(Map map) {
+    if (map == null) {
+      return null;
+    }
+
+    GankItemBean bean = new GankItemBean(map[TAB.COLUMN_ID], map[TAB.COLUMN_CREATE_AT],
+        map[TAB.COLUMN_DESC], map[TAB.COLUMN_PUBLISH_AT], map[TAB.COLUMN_SOURCE],
+        map[TAB.COLUMN_TYPE], map[TAB.COLUMN_URL], map[TAB.COLUMN_USED] == 1, map[TAB.COLUMN_WHO]);
+    return bean;
+
+  }
+
 
   Future<bool> hasFavouriteEntry(GankItemBean bean) async{
     var dbClient = await db;
@@ -133,6 +145,20 @@ class DateBaseHelper {
       columns: [TAB.COLUMN_ID],
     );
     return result.length;
+  }
+
+  Future<List> getFavourites() async {
+    var dbClient = await db;
+    List<Map> result = await dbClient.query(TAB.TAB_FAVOURITE_NAME,orderBy:TAB.COLUMN_COLLECT_DATE+" DESC");
+
+    return result;
+  }
+
+  Future<List> getHistories() async {
+    var dbClient = await db;
+    List<Map> result = await dbClient.query(TAB.TAB_HISTORY_NAME,orderBy:TAB.COLUMN_READ_DATE+" DESC");
+
+    return result;
   }
 }
 
