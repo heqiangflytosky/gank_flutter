@@ -17,7 +17,7 @@ class AboutWidget extends StatelessWidget {
             new HeaderText("简介"),
             new ContentText("每日分享技术干货和妹子图，还有供大家中午休息的休闲视频"),
             new LinkText("数据来源： http://gank.io/api"),
-            new LinkText("项目源码： https://github.com/heqiangflytosky/GankTouTiao"),
+            new LinkText("项目源码： https://github.com/heqiangflytosky/gank_flutter"),
             new HeaderText("开发者"),
             new LinkText("个人主页: http://www.heqiangfly.com"),
             new LinkText("CSDN: http://blog.csdn.net/heqiangflytosky"),
