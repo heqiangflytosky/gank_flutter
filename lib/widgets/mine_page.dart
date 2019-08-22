@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:gank_flutter/persistence/db_helper.dart';
 import 'package:gank_flutter/widgets/fav_history_page.dart';
-import 'package:gank_flutter/widgets/about_page.dart';
-
+import 'package:gank_flutter/utils/constants.dart';
 
 class MinePageWidget extends StatefulWidget{
   @override
@@ -91,21 +90,15 @@ class MinePageWidgetState extends State<MinePageWidget> {
   }
 
   _openFavPage() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new FavHisWidget(PAGE_TYPE.FAVOURITE);
-    }));
+    Navigator.of(context).pushNamed(Page.PAGE_FAV_HISTORY,arguments: PAGE_TYPE.FAVOURITE);
   }
 
   _openHisPage() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new FavHisWidget(PAGE_TYPE.HISTORY);
-    }));
+    Navigator.of(context).pushNamed(Page.PAGE_FAV_HISTORY,arguments: PAGE_TYPE.HISTORY);
   }
 
   _openAboutPage() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new AboutWidget();
-    }));
+    Navigator.of(context).pushNamed(Page.PAGE_ABOUT);
   }
 
 }

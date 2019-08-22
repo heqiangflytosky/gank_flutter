@@ -19,3 +19,8 @@ class GankType {
   static const String TYPE_EXPAND_RES = "拓展资源";
   static const String TYPE_RECOMMEND = "瞎推荐";
 }
+class Page {
+  static const String PAGE_DETAILS = "details";
+  static const String PAGE_FAV_HISTORY = "fav_history";
+  static const String PAGE_ABOUT = "about";
+}
