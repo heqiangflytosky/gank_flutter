@@ -13,8 +13,7 @@ class ListItem extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return new ListItemState(_data,_showType);
+    return new ListItemState();
   }
 
 }
@@ -24,7 +23,12 @@ class ListItemState extends State<ListItem> {
   GankItemBean _data;
   bool _showType = false;
 
-  ListItemState(this._data,this._showType);
+  @override
+  void initState() {
+    super.initState();
+    _data = widget._data;
+    _showType = widget._showType;
+  }
 
   @override
   Widget build(BuildContext context) {

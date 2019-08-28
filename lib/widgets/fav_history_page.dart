@@ -10,7 +10,7 @@ class FavHisWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return new FavHisState(_page_type);
+    return new FavHisState();
   }
   
 }
@@ -19,12 +19,10 @@ class FavHisState extends State<FavHisWidget> {
   PAGE_TYPE _page_type;
   List _data = new List();
 
-  FavHisState(this._page_type);
-
-
   @override
   void initState() {
     super.initState();
+    _page_type = widget._page_type;
     _getData();
   }
 

@@ -20,7 +20,7 @@ class CategoryList extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return new CateGoryListState(_categort);
+    return new CateGoryListState();
   }
 
 }
@@ -34,14 +34,10 @@ class CateGoryListState extends State<CategoryList> with AutomaticKeepAliveClien
 
   LOAD_STATE _state;
 
-  CateGoryListState(String type){
-    _type = type;
-  }
-
-
   @override
   void initState() {
     super.initState();
+    _type = widget._categort;
     _state = LOAD_STATE.STATE_LOADING;
     _scrollController.addListener((){
       if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent){

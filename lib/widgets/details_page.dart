@@ -12,7 +12,7 @@ class DetailsPage extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() {
-    return new DetailsPageSate(_data);
+    return new DetailsPageSate();
   }
 }
 
@@ -20,12 +20,10 @@ class DetailsPageSate extends State<DetailsPage> {
   final _plugin = new FlutterWebviewPlugin();
   GankItemBean _data;
 
-  DetailsPageSate(this._data);
-
-
   @override
   void initState() {
     super.initState();
+    _data = widget._data;
     DateBaseHelper.getInstance().addHistory(_data);
   }
 
