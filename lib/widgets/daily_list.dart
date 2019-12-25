@@ -103,69 +103,83 @@ class DailyListState extends State<DailyList>  with AutomaticKeepAliveClientMixi
         int maxContent = 5;
         if (benefit != null && benefit.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_BENEFIT, _getIconUrl(GankType.TYPE_BENEFIT)));
-          _listData.add(new GankImageItem(benefit.elementAt(0).url));
+          _listData.add(new GankImageItem(benefit.elementAt(benefit.length - 1).url));
         }
 
         List<GankItemBean> android = bean.androidDataList;
         if (android != null && android.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_ANDROID, _getIconUrl(GankType.TYPE_ANDROID)));
-          int max = android.length < maxContent ? android.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(android.elementAt(i)));
+          for(int i = android.length;i > android.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(android.elementAt(i - 1)));
           }
         }
 
         List<GankItemBean> ios = bean.iosGDataList;
         if (ios != null && ios.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_IOS, _getIconUrl(GankType.TYPE_IOS)));
-          int max = ios.length < maxContent ? ios.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(ios.elementAt(i)));
+          for(int i = ios.length;i > ios.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(ios.elementAt(i - 1)));
           }
         }
 
         List<GankItemBean> web = bean.webDataList;
         if (web != null && web.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_WEB, _getIconUrl(GankType.TYPE_WEB)));
-          int max = web.length < maxContent ? web.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(web.elementAt(i)));
+          for(int i = web.length;i > web.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(web.elementAt(i - 1)));
           }
         }
 
         List<GankItemBean> app = bean.appDataList;
         if (app != null && app.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_APP, _getIconUrl(GankType.TYPE_APP)));
-          int max = app.length < maxContent ? app.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(app.elementAt(i)));
+          for(int i = app.length;i > app.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(app.elementAt(i - 1)));
           }
         }
 
         List<GankItemBean> video = bean.restVideoDataList;
         if (video != null && video.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_REST_VIDEO, _getIconUrl(GankType.TYPE_REST_VIDEO)));
-          int max = video.length < maxContent ? video.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(video.elementAt(i)));
+          for(int i = video.length;i > video.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(video.elementAt(i - 1)));
           }
         }
 
         List<GankItemBean> res = bean.expandResDataList;
         if (res != null && res.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_EXPAND_RES, _getIconUrl(GankType.TYPE_EXPAND_RES)));
-          int max = res.length < maxContent ? res.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(res.elementAt(i)));
+          for(int i = res.length;i > res.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(res.elementAt(i - 1)));
           }
         }
 
         List<GankItemBean> recommend = bean.recommendDataList;
         if (recommend != null && recommend.length > 0) {
           _listData.add(new GankHeaderItem(GankType.TYPE_RECOMMEND, _getIconUrl(GankType.TYPE_RECOMMEND)));
-          int max = recommend.length < maxContent ? recommend.length : maxContent;
-          for(int i = 0;i<max;i++) {
-            _listData.add(new GankContentItem(recommend.elementAt(i)));
+          for(int i = recommend.length;i > recommend.length - maxContent;i--) {
+            if (i<=0) {
+              break;
+            }
+            _listData.add(new GankContentItem(recommend.elementAt(i - 1)));
           }
         }
 
